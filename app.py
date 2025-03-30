@@ -41,3 +41,12 @@ def transcribe_respond(audio):
         temp_audio.write(audioResponse)
         tempAudioPath = temp_audio.name
     return tempAudioPath
+
+inter = gr.Interface(
+    fn = transcribe_respond,
+    inputs=gr.Audio(sources=["microphone"]),
+    outputs=gr.Audio(sources=["upload"])
+)
+
+if __name__ == "__main":
+    inter.launch()
