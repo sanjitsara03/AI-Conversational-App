@@ -34,3 +34,10 @@ def transcribe_respond(audio):
     )
     txtResponse =response.choices[0].message.content
     print(txtResponse)
+
+    #Converting response into audio
+    audioResponse = elevenlabs.generate(text=txtResponse, voice = "Rachel")
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_audio:
+        temp_audio.write(audioResponse)
+        tempAudioPath = temp_audio.name
+    return tempAudioPath
