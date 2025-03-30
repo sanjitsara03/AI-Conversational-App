@@ -1,8 +1,8 @@
 import gradio as gr
-from tranformers import pipeline
+from transformers import pipeline
 import numpy as np
 from openai import OpenAI
-import elevelabs
+import elevenlabs
 import tempfile
 import apikeys 
 
